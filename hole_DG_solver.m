@@ -17,7 +17,7 @@ elseif nen == 8
     [coord,etpl_face,etpl,ed] = DGmeshGenPlateHole_8node(nel,nel);         % Hole 8 noded quad mesh
 end
 
-k = Linear2D(nen,nels,num_faces,nD,etpl,etpl_face,ed,coord,E,v,nelblo_size); % Optimised stiffness matrix generation
+k = Linear_2D(nen,nels,num_faces,nD,etpl,etpl_face,ed,coord,E,v,nelblo_size); % Optimised stiffness matrix generation
 k=k+k';
 
 % Example Boundary conditions and problem: hole in an infinite plate
