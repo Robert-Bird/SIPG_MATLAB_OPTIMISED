@@ -1,4 +1,4 @@
-function [k]=Linear2D(nen,nels,num_faces,nD,etpl,etpl_face,ed,coord,E,v,nelblo_size)
+function [k]=Linear_2D(nen,nels,num_faces,nD,etpl,etpl_face,ed,coord,E,v,nelblo_size)
 
 
 %% ==================== Problem Defining Parameters ==================== %%
