@@ -326,13 +326,13 @@ glob_4_rs = reshape(reshape(glob_4,tot_f,nndof)',tot_f*(nndof),1);
 
 
 %% ================== Producing steering vectors ======================= %%
-pi = reshape(repmat(ed_p,1,ndof)',1,nndof*tot_f);                          %
+pos_i = reshape(repmat(ed_p,1,ndof)',1,nndof*tot_f);                          %
 ed_pve = reshape(ed_p',1,ndof*tot_f);                                      % +ve element steering vector for row 'j' and column 'i'
-pj = reshape(repmat(ed_pve,ndof,1),1,tot_f*nndof);                         %
+pos_j = reshape(repmat(ed_pve,ndof,1),1,tot_f*nndof);                         %
 
-ni = reshape(repmat(ed_n,1,ndof)',1,nndof*tot_f);                          %
+neg_i = reshape(repmat(ed_n,1,ndof)',1,nndof*tot_f);                          %
 ed_nve = reshape(ed_n',1,ndof*tot_f);                                      % -ve element steering vector for row 'j' and column 'i'
-nj = reshape(repmat(ed_nve,ndof,1),1,tot_f*nndof);                         %
+neg_j = reshape(repmat(ed_nve,ndof,1),1,tot_f*nndof);                         %
 
 %% ================== Sparse storage =================================== %%
 
@@ -343,10 +343,10 @@ k = sparse(ndof*nels,ndof*nels);
 % =================== Volumetric sparse storage ========================= %
 k = k + sparse(ed_i,ed_j,K_all,tndof,tndof);
 % =================== Surface sparse storage ============================ %
-k = k -  sparse(pi,pj,glob_1_rs,tndof,tndof);
-k = k -  sparse(pi,nj,glob_2_rs,tndof,tndof);
-k = k -  sparse(ni,pj,glob_3_rs,tndof,tndof);
-k = k -  sparse(ni,nj,glob_4_rs,tndof,tndof);
+k = k -  sparse(pos_i,pos_j,glob_1_rs,tndof,tndof);
+k = k -  sparse(pos_i,neg_j,glob_2_rs,tndof,tndof);
+k = k -  sparse(neg_i,pos_j,glob_3_rs,tndof,tndof);
+k = k -  sparse(neg_i,neg_j,glob_4_rs,tndof,tndof);
 k=k+k';
 end
 
