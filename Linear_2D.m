@@ -3,7 +3,7 @@ function [k]=Linear_2D(nen,nels,num_faces,nD,etpl,etpl_face,ed,coord,E,v,nelblo_
 
 %% ==================== Problem Defining Parameters ==================== %%
 ndof=nen*nD; nndof=ndof^2; tndof=ndof*nels;                                % Setup of problem parameters
-[vwp,vdNr,ngp,swp,sdNr,nsgp,sNr,~]=dershapefunc2D(nen,0);                    % Shape function production
+[vwp,vdNr,ngp,swp,sdNr,nsgp,sNr,~]=dershapefunc2D(nen,0);                  % Shape function production
 if nen == 4
     p=1;
 elseif nen == 8
