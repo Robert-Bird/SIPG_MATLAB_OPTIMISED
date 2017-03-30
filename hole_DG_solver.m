@@ -7,7 +7,7 @@ pr = 100;                                                                  % Pre
 nen  = 4;                                                                  % Number of element nodes
 nel_half = 29;
 nel=nel_half*2;                                                            % Number of elements along x or y axis
-nels = nel^2;                                                              % Number of elements
+nels = nel^2;                                                              % Half the number of elements along the radius or circumference
 nelblo_size = 30000;                                                       % Number of elements in a block loop
 num_faces = 4;                                                             % Number of element faces
 
